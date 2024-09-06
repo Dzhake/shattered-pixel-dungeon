@@ -62,6 +62,21 @@ public class AboutScene extends PixelScene {
 		Component content = list.content();
 		content.clear();
 
+		//*** ReShattered Pixel Dungeon Credits ***
+
+		CreditsBlock dzh = new CreditsBlock(true, Window.DZH_COLOR,
+				"ReShattered Pixel Dungeon",
+				Icons.DZHAKE.get(),
+				"Developed by: _Dzhake_\nBased on Shattered Pixel Dungeon's open source",
+				"dzhake.github.io",
+				"dzhake.github.io");
+		if (landscape()){
+			dzh.setRect((w - fullWidth)/2f - 6, 10, 120, 0);
+		} else {
+			dzh.setRect((w - fullWidth)/2f, 6, 120, 0);
+		}
+		content.add(dzh);
+
 		//*** Shattered Pixel Dungeon Credits ***
 
 		String shpxLink = "https://ShatteredPixel.com";
@@ -77,9 +92,9 @@ public class AboutScene extends PixelScene {
 				"ShatteredPixel.com",
 				shpxLink);
 		if (landscape()){
-			shpx.setRect((w - fullWidth)/2f - 6, 10, 120, 0);
+			shpx.setRect(dzh.left(), dzh.bottom() + 8, colWidth, 0);
 		} else {
-			shpx.setRect((w - fullWidth)/2f, 6, 120, 0);
+			shpx.setRect(dzh.left(), dzh.bottom() + 8, colWidth, 0);
 		}
 		content.add(shpx);
 
@@ -114,6 +129,8 @@ public class AboutScene extends PixelScene {
 				"https://www.youtube.com/@kristjanthomashaaristo");
 		kristjan.setRect(alex.right() - colWidth/4f, alex.bottom() + 5, colWidth/2f, 0);
 		content.add(kristjan);
+
+		addLine(shpx.top() - 4, content);
 
 		//*** Pixel Dungeon Credits ***
 
